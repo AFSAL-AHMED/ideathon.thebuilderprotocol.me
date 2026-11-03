@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#05070B" />
+    <meta name="description" content="The Next-Gen Media Blueprint Ideathon — A builder-first strategy challenge hosted by The Builder Protocol. Three focused tracks. Real deliverables. Your work could ship in Issue 03." />
+    <meta name="keywords" content="ideathon, builder protocol, AI content, LinkedIn growth, media blueprint, hackathon, challenge" />
+    <meta property="og:title" content="IDEATHON — THE BUILDER PROTOCOL" />
+    <meta property="og:description" content="The Next-Gen Media Blueprint Ideathon. Three tracks. Real deliverables. Register free." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ideathon.thebuilderprotocol.me" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="IDEATHON — THE BUILDER PROTOCOL" />
+    <meta name="robots" content="index, follow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <title>IDEATHON — THE_BUILDER_PROTOCOL.ME</title>
+    <style>
+      /* ─── CSS Variables ─── */
+      :root {
+        --obsidian: #05070B;
+        --obsidian-100: #0D1120;
+        --cyan-neon: #00F0FF;
+        --amethyst: #9D4EDD;
+        --slate-muted: #8B9EC7;
+        --border-subtle: rgba(255,255,255,0.06);
+        --border-mid: rgba(255,255,255,0.12);
+        --muted: rgba(255,255,255,0.45);
+      }
+
+      /* ─── Reset & Base ─── */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: 0 solid #e5e7eb;
+      }
+      html { scroll-behavior: smooth; }
+      body {
+        background: #05070B;
+        color: #fff;
+        font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+      }
+      a { color: inherit; text-decoration: none; }
+      button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+      img, svg { display: block; max-width: 100%; }
+      ul, ol { list-style: none; }
+
+      /* ─── Typography ─── */
+      .font-mono, code, kbd, pre {
+        font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      }
+      .display-lg {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+      .display-md {
+        font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.015em;
+      }
+      .label-mono {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .tag-mono {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .text-muted { color: var(--muted); }
+      .text-cyan { color: var(--cyan-neon); }
+      .text-amethyst { color: var(--amethyst); }
+
+      /* ─── Grid Background ─── */
+      .grid-bg {
+        background-color: #05070B;
+        background-image:
+          linear-gradient(rgba(0,240,255,0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,240,255,0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+
+      /* ─── Glass Nav ─── */
+      .glass-nav {
+        background: rgba(5,7,11,0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      /* ─── Cards ─── */
+      .card-base {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid var(--border-subtle);
+        border-radius: 12px;
+        transition: border-color 0.25s ease, background 0.25s ease;
+      }
+      .card-base:hover {
+        border-color: rgba(0,240,255,0.15);
+      }
+
+      /* ─── Badges ─── */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.625rem;
+        border-radius: 4px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.625rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .badge-cyan { background: rgba(0,240,255,0.1); color: var(--cyan-neon); border: 1px solid rgba(0,240,255,0.2); }
+      .badge-amethyst { background: rgba(157,78,221,0.12); color: var(--amethyst); border: 1px solid rgba(157,78,221,0.25); }
+      .badge-green { background: rgba(0,255,128,0.1); color: #00ff80; border: 1px solid rgba(0,255,128,0.2); }
+      .badge-slate { background: rgba(139,158,199,0.1); color: var(--slate-muted); border: 1px solid rgba(139,158,199,0.2); }
+
+      /* ─── Buttons ─── */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.4rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+      .btn-register {
+        background: #9D4EDD;
+        color: #fff;
+        box-shadow: 0 0 24px rgba(157,78,221,0.4);
+      }
+      .btn-register:hover {
+        box-shadow: 0 0 36px rgba(157,78,221,0.6);
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.4rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid var(--border-mid);
+        color: rgba(255,255,255,0.75);
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+      .btn-secondary:hover {
+        background: rgba(255,255,255,0.08);
+        border-color: rgba(255,255,255,0.2);
+        color: #fff;
+      }
+
+      /* ─── Section Header ─── */
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+      }
+      .section-header-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border-subtle);
+      }
+
+      /* ─── Masthead Section ─── */
+      .masthead-section {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--border-subtle);
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+      }
+      .masthead-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 70% 80% at 50% -20%, rgba(157,78,221,0.1) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      /* ─── Animations ─── */
+      @keyframes pulse-dot {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(16px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes scanLine {
+        0% { transform: translateY(-100%); }
+        to { transform: translateY(150vh); }
+      }
+
+      .animate-pulse-dot { animation: pulse-dot 2s cubic-bezier(0.4,0,0.6,1) infinite; }
+      .animate-fade-in { animation: fadeInUp 0.7s ease-out forwards; }
+      .animate-fade-in-delay-1 { animation: fadeInUp 0.7s ease-out 0.15s both; }
+      .animate-fade-in-delay-2 { animation: fadeInUp 0.7s ease-out 0.3s both; }
+      .animate-fade-in-delay-3 { animation: fadeInUp 0.7s ease-out 0.45s both; }
+
+      .scan-line {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0,240,255,0.2), transparent);
+        pointer-events: none;
+        animation: scanLine 8s linear infinite;
+        top: 0;
+        left: 0;
+      }
+
+      /* ─── Scrollbar ─── */
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: var(--obsidian); }
+      ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(0,240,255,0.3); }
+
+      /* ─── Selection ─── */
+      ::selection { background: rgba(0,240,255,0.2); color: #fff; }
+
+      /* ─── Layout Utilities ─── */
+      .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+      @media (min-width: 640px) { .container { padding: 0 1.5rem; } }
+      @media (min-width: 1024px) { .container { padding: 0 2rem; } }
+
+      /* ─── Header ─── */
+      header {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 50;
+        padding: 1rem 0;
+        transition: padding 0.3s ease;
+      }
+      header.scrolled { padding: 0.75rem 0; }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+      }
+      .header-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+      }
+      .logo-box {
+        width: 28px; height: 28px;
+        border-radius: 6px;
+        border: 1px solid rgba(0,240,255,0.3);
+        display: flex; align-items: center; justify-content: center;
+        background: rgba(0,240,255,0.05);
+      }
+      .logo-box span {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--cyan-neon);
+      }
+      .logo-text {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.875rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: rgba(255,255,255,0.9);
+      }
+      .logo-text .cyan { color: var(--cyan-neon); }
+      .status-dot {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+      }
+
+      /* ─── Hero Section ─── */
+      .hero {
+        padding-top: 7rem;
+        padding-bottom: 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(157,78,221,0.12) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+      .hero-content { position: relative; z-index: 1; }
+      .hero-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+      }
+      @media (min-width: 1024px) {
+        .hero-layout { flex-direction: row; align-items: flex-start; }
+      }
+      .hero-main { flex: 1; }
+      .hero-sidebar {
+        flex-shrink: 0;
+      }
+      @media (min-width: 1024px) { .hero-sidebar { width: 260px; } }
+
+      .event-params { padding: 1.25rem; }
+      .event-params-title {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--amethyst);
+        margin-bottom: 1rem;
+      }
+      .param-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.8125rem;
+        border-bottom: 1px solid var(--border-subtle);
+        padding-bottom: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+      .param-row:last-child { border-bottom: none; margin-bottom: 0; }
+      .param-label { color: var(--muted); }
+      .param-value { color: #fff; font-weight: 500; }
+
+      /* ─── Tracks Grid ─── */
+      .tracks-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        margin-bottom: 4rem;
+      }
+      @media (min-width: 768px) {
+        .tracks-grid { grid-template-columns: repeat(3, 1fr); }
+      }
+      .track-card {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+      .track-icon { font-size: 2rem; margin-bottom: 1rem; }
+      .track-badges { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+      .track-title { font-weight: 700; font-size: 1.0625rem; color: #fff; margin-bottom: 0.25rem; }
+      .track-tagline {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        margin-bottom: 1rem;
+      }
+      .track-desc { font-size: 0.8125rem; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 1.25rem; }
+      .track-meta {
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-subtle);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .track-meta-row { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; }
+      .meta-label { color: var(--muted); }
+      .meta-value { color: rgba(255,255,255,0.8); }
+      .meta-prize { color: #fbbf24; font-weight: 500; }
+
+      /* ─── Timeline ─── */
+      .timeline-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 4rem;
+      }
+      @media (min-width: 640px) {
+        .timeline-grid { grid-template-columns: repeat(4, 1fr); }
+      }
+      .timeline-card { padding: 1rem; position: relative; }
+      .timeline-card.active {
+        border-color: rgba(0,240,255,0.3) !important;
+        background: rgba(0,240,255,0.03) !important;
+      }
+      .phase-dot {
+        width: 8px; height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .phase-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+      .phase-date {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.75rem;
+        color: rgba(255,255,255,0.8);
+        margin-bottom: 0.25rem;
+      }
+      .phase-label { font-size: 0.8125rem; color: var(--muted); }
+
+      /* ─── CTA Section ─── */
+      .cta-section {
+        padding: 3rem 2rem;
+        text-align: center;
+        margin-bottom: 0;
+      }
+      .cta-badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .cta-title { margin-bottom: 0.75rem; }
+      .cta-desc { color: var(--muted); margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; font-size: 0.9375rem; }
+      .btn-cta {
+        background: #9D4EDD;
+        color: #fff;
+        box-shadow: 0 0 30px rgba(157,78,221,0.4);
+        padding: 1rem 2.5rem;
+        font-size: 0.9375rem;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.625rem;
+        font-weight: 700;
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+      .btn-cta:hover {
+        box-shadow: 0 0 44px rgba(157,78,221,0.65);
+        transform: translateY(-2px);
+      }
+
+      /* ─── Footer ─── */
+      footer {
+        border-top: 1px solid var(--border-subtle);
+        background: var(--obsidian);
+        padding: 2rem 0;
+        margin-top: 4rem;
+      }
+      .footer-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        text-align: center;
+      }
+      @media (min-width: 640px) {
+        .footer-inner {
+          flex-direction: row;
+          justify-content: space-between;
+          text-align: left;
+        }
+      }
+      .footer-text { font-size: 0.8125rem; color: var(--muted); }
+      .footer-link { color: var(--cyan-neon); transition: opacity 0.2s; }
+      .footer-link:hover { opacity: 0.8; }
+      .gradient-top-line {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0,240,255,0.2), transparent);
+        margin-bottom: 2rem;
+      }
+
+      /* ─── Misc ─── */
+      .main-content { padding: 0 0 0 0; }
+      section { padding-top: 4rem; padding-bottom: 2rem; }
+      .section-padding { padding-left: 1.5rem; padding-right: 1.5rem; }
+      @media (min-width: 640px) { .section-padding { padding-left: 1.5rem; padding-right: 1.5rem; } }
+      @media (min-width: 1024px) { .section-padding { padding-left: 2rem; padding-right: 2rem; } }
+
+      /* Prize star icon inline SVG utility */
+      .star-icon {
+        display: inline-block;
+        width: 11px;
+        height: 11px;
+        vertical-align: middle;
+        color: #fbbf24;
+      }
+
+      /* Responsive hero buttons */
+      .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      /* Mobile tweaks */
+      @media (max-width: 640px) {
+        .display-lg { font-size: 2rem; }
+        .hide-sm { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ─── HEADER ─── -->
+    <header id="main-header" class="glass-nav">
+      <div class="container">
+        <div class="header-inner">
+          <!-- Status -->
+          <div class="status-dot hide-sm">
+            <span class="animate-pulse-dot" style="width:8px;height:8px;border-radius:50%;background:#4ade80;display:inline-block;"></span>
+            <span class="label-mono" style="color:#4ade80;font-size:0.6rem;">SYS_NODE: ACTIVE</span>
+          </div>
+
+          <!-- Logo -->
+          <a href="https://thebuilderprotocol.me" class="header-logo">
+            <div class="logo-box"><span>TB</span></div>
+            <span class="logo-text">THE_BUILDER_PROTOCOL<span class="cyan">.ME</span></span>
+          </a>
+
+          <!-- CTA -->
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe_NxV0HZt0BCEndwe5rrb54deQbQccZ9EqN8KTFAqksu-ieg/viewform?usp=header"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary btn-register"
+            style="font-size:0.75rem;padding:0.5rem 1rem;"
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            REGISTER FREE
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ─── MAIN ─── -->
+    <main class="grid-bg" style="min-height:100vh;">
+
+      <!-- ─── HERO ─── -->
+      <section class="hero section-padding">
+        <div class="container hero-content">
+          <div class="hero-layout">
+
+            <!-- Left: Text -->
+            <div class="hero-main animate-fade-in">
+              <!-- Badges -->
+              <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+                <span class="badge badge-amethyst">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  STRATEGY INITIATIVE
+                </span>
+                <span class="badge badge-green">REGISTRATIONS OPEN</span>
+              </div>
+
+              <!-- Title -->
+              <h1 class="display-lg" style="color:#fff;margin-bottom:1rem;">
+                The Next-Gen<br class="hide-sm" />
+                <span style="color:#9D4EDD;">Media Blueprint</span>
+                Ideathon
+              </h1>
+
+              <!-- Subtitle -->
+              <p style="font-size:1.0625rem;color:var(--muted);line-height:1.7;max-width:580px;margin-bottom:0;">
+                A builder-first strategy challenge hosted by The Builder Protocol. Three focused tracks. Real deliverables. Your work could ship in Issue 03 or power our distribution layer.
+              </p>
+
+              <!-- Buttons -->
+              <div class="hero-buttons">
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSe_NxV0HZt0BCEndwe5rrb54deQbQccZ9EqN8KTFAqksu-ieg/viewform?usp=header"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary btn-register"
+                  id="hero-register-btn"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  Register Now — Free
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a href="#tracks" class="btn-secondary">
+                  View Tracks
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right: Event Params Card -->
+            <div class="hero-sidebar animate-fade-in-delay-1">
+              <div class="card-base event-params">
+                <div class="event-params-title">EVENT PARAMETERS</div>
+                <div class="param-row"><span class="param-label">Format</span><span class="param-value">Online / Async</span></div>
+                <div class="param-row"><span class="param-label">Tracks</span><span class="param-value">3 Open Tracks</span></div>
+                <div class="param-row"><span class="param-label">Entry Fee</span><span class="param-value">Zero-Budget (Free)</span></div>
+                <div class="param-row"><span class="param-label">Team Size</span><span class="param-value">Solo or Duo</span></div>
+                <div class="param-row"><span class="param-label">Host</span><span class="param-value">The Builder Protocol</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── TRACKS ─── -->
+      <section id="tracks" class="section-padding" style="padding-top:1rem;">
+        <div class="container">
+          <!-- Section Header -->
+          <div class="section-header animate-fade-in-delay-2">
+            <span class="label-mono text-amethyst">CHALLENGE TRACKS</span>
+            <div class="section-header-line"></div>
+            <span class="label-mono text-muted">3 OPEN TRACKS</span>
+          </div>
+
+          <!-- Track Cards -->
+          <div class="tracks-grid animate-fade-in-delay-2">
+
+            <!-- Track 01: AI Content Masterstroke -->
+            <div class="card-base track-card" style="border-top:2px solid rgba(0,240,255,0.4);">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <span style="font-size:2rem;">🤖</span>
+                <div class="track-badges">
+                  <span class="badge badge-cyan">TRACK_01</span>
+                  <span class="badge badge-slate">ADVANCED</span>
+                </div>
+              </div>
+              <h3 class="track-title">AI Content Masterstroke</h3>
+              <p class="track-tagline" style="color:var(--cyan-neon);">// Build the Machine That Writes The Machine</p>
+              <p class="track-desc">Design and prototype an AI-powered content engine — a system that researches, structures, and generates publication-grade technical articles with minimal human input. Judges will evaluate originality, pipeline architecture, and content quality output.</p>
+              <div class="track-meta">
+                <div class="track-meta-row">
+                  <span class="meta-label">Deliverable:</span>
+                  <span class="meta-value">Working prototype + Architecture doc</span>
+                </div>
+                <div class="track-meta-row">
+                  <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <span class="meta-label">Prize:</span>
+                  <span class="meta-prize">Feature in Issue 03</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Track 02: LinkedIn Growth Hack -->
+            <div class="card-base track-card" style="border-top:2px solid rgba(157,78,221,0.4);">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <span style="font-size:2rem;">📈</span>
+                <div class="track-badges">
+                  <span class="badge badge-amethyst">TRACK_02</span>
+                  <span class="badge badge-slate">INTERMEDIATE</span>
+                </div>
+              </div>
+              <h3 class="track-title">LinkedIn Growth Hack</h3>
+              <p class="track-tagline" style="color:var(--amethyst);">// Engineer Virality. Not Luck.</p>
+              <p class="track-desc">Devise and execute a data-driven LinkedIn growth strategy for The Builder Protocol. Submit a full playbook: content calendar, hook formula library, engagement loop design, and a 30-day execution report with real metrics.</p>
+              <div class="track-meta">
+                <div class="track-meta-row">
+                  <span class="meta-label">Deliverable:</span>
+                  <span class="meta-value">Strategy playbook + 30-day report</span>
+                </div>
+                <div class="track-meta-row">
+                  <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <span class="meta-label">Prize:</span>
+                  <span class="meta-prize">Distribution Partnership</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Track 03: Ultimate Magazine Feature -->
+            <div class="card-base track-card" style="border-top:2px solid rgba(0,240,255,0.4);">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <span style="font-size:2rem;">✍️</span>
+                <div class="track-badges">
+                  <span class="badge badge-cyan">TRACK_03</span>
+                  <span class="badge badge-slate">OPEN</span>
+                </div>
+              </div>
+              <h3 class="track-title">The Ultimate Magazine Feature</h3>
+              <p class="track-tagline" style="color:var(--cyan-neon);">// Write Something Worth Remembering</p>
+              <p class="track-desc">Submit a full-length, publication-grade editorial feature (2500–4000 words) on any theme within our research scope: AI engineering, startup forensics, or open-source ecosystems. The winning piece gets published in Issue 03 with full attribution.</p>
+              <div class="track-meta">
+                <div class="track-meta-row">
+                  <span class="meta-label">Deliverable:</span>
+                  <span class="meta-value">Full editorial feature (2500–4000 words)</span>
+                </div>
+                <div class="track-meta-row">
+                  <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <span class="meta-label">Prize:</span>
+                  <span class="meta-prize">Published in Issue 03</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── TIMELINE ─── -->
+      <section id="timeline" class="section-padding" style="padding-top:1rem;">
+        <div class="container">
+          <div class="section-header animate-fade-in-delay-3">
+            <span class="label-mono text-cyan">EVENT TIMELINE</span>
+            <div class="section-header-line"></div>
+          </div>
+
+          <div class="timeline-grid animate-fade-in-delay-3">
+
+            <div class="card-base timeline-card active">
+              <div class="phase-header">
+                <span class="phase-dot" style="background:#00F0FF;"></span>
+                <span class="label-mono text-cyan" style="font-size:0.6rem;">PHASE 01</span>
+              </div>
+              <div class="phase-date">Nov 1, 2026</div>
+              <div class="phase-label">Registration Closes</div>
+            </div>
+
+            <div class="card-base timeline-card">
+              <div class="phase-header">
+                <span class="phase-dot" style="background:rgba(255,255,255,0.2);"></span>
+                <span class="label-mono text-muted" style="font-size:0.6rem;">PHASE 02</span>
+              </div>
+              <div class="phase-date">Nov 20, 2026</div>
+              <div class="phase-label">Submissions Due</div>
+            </div>
+
+            <div class="card-base timeline-card">
+              <div class="phase-header">
+                <span class="phase-dot" style="background:rgba(255,255,255,0.2);"></span>
+                <span class="label-mono text-muted" style="font-size:0.6rem;">PHASE 03</span>
+              </div>
+              <div class="phase-date">Nov 21–28, 2026</div>
+              <div class="phase-label">Judging Period</div>
+            </div>
+
+            <div class="card-base timeline-card">
+              <div class="phase-header">
+                <span class="phase-dot" style="background:rgba(255,255,255,0.2);"></span>
+                <span class="label-mono text-muted" style="font-size:0.6rem;">PHASE 04</span>
+              </div>
+              <div class="phase-date">Dec 1, 2026</div>
+              <div class="phase-label">Winners Announced</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── CTA ─── -->
+      <section class="section-padding" style="padding-bottom:3rem;padding-top:0;">
+        <div class="container">
+          <div class="masthead-section cta-section">
+            <div class="cta-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--amethyst)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              <span class="label-mono text-amethyst">REGISTRATION IS FREE &amp; OPEN TO ALL</span>
+            </div>
+            <h2 class="display-md cta-title" style="color:#fff;">
+              Ready to Build Something
+              <span style="color:#9D4EDD;">Worth Publishing?</span>
+            </h2>
+            <p class="cta-desc">Click below to access the Google Form registration. Takes 2 minutes. No prerequisites — just a builder's mindset.</p>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe_NxV0HZt0BCEndwe5rrb54deQbQccZ9EqN8KTFAqksu-ieg/viewform?usp=header"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="cta-register-btn"
+              class="btn-cta"
+            >
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Open Registration Form
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+      <div class="container">
+        <div class="gradient-top-line"></div>
+        <div class="footer-inner">
+          <div>
+            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+              <div class="logo-box" style="width:24px;height:24px;"><span style="font-size:0.6rem;">TB</span></div>
+              <span class="logo-text" style="font-size:0.8rem;">THE_BUILDER_PROTOCOL<span class="cyan">.ME</span></span>
+            </div>
+            <p class="footer-text">An open-access monthly digital serial publication.</p>
+          </div>
+          <div class="footer-text" style="text-align:center;">
+            <p>Hosted by <a href="https://thebuilderprotocol.me" class="footer-link">thebuilderprotocol.me</a></p>
+            <p style="margin-top:0.25rem;">St. Joseph's Institute of Technology, Chennai</p>
+          </div>
+          <div class="footer-text" style="text-align:right;">
+            <p>Editor-in-Chief: Afsal Ahmed S</p>
+            <a href="mailto:editorial@thebuilderprotocol.me" class="footer-link" style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;">editorial@thebuilderprotocol.me</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ─── SCRIPTS ─── -->
+    <script>
+      // Sticky header shrink on scroll
+      const header = document.getElementById('main-header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 20);
+      });
+    </script>
+
+  </body>
+</html>
+
